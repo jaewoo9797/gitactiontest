@@ -126,8 +126,8 @@ jobs:
 ```
 수정한 코드를 `push` 한 후 `pr`의 결과를 살펴보겠습니다.
 
+
 <div style="display: flex; flex-direction: column; align-items: center;">
    <img src="/imageStore/createPr.png" style="width:900px; border-radius:10px; margin-bottom: 30px">
    <img src="/imageStore/failPrresult.png" style="width:900px; border-radius:10px;">
 </div>
-
