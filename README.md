@@ -26,5 +26,9 @@ Hello there~ 👋
 
 1. 개인 레포지터리의 브랜치가 `part1-백재우-sprint1`가 최상단이 아니다.
    깃허브 액션의 설정파일을 가지고 있지 않은 `main` 에서는 당연히 인식하지 못하였으며, 액션이 등록되지 않았다. 이에 레포지터리 설정에서 `default brach`를 바꾸어주었다.
-   ![]()
-  ![]()
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+   <img src="/imageStore/defaultBranch.png" style="width:900px;  border-radius:10px">
+   <img src="/imageStore/defaultBranchHome.png" style="width:900px;  border-radius:10px">
+</div>
+
