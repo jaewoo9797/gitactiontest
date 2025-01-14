@@ -39,7 +39,7 @@ class UserTest {
             // when
             var userName = user.getName();
             // then
-            assertThat("userName").isEqualTo(USER_NAME);
+            assertThat(userName).isEqualTo(USER_NAME);
         }
 
         // TODO : 유저 이름 수정 성공 테스트
@@ -53,7 +53,7 @@ class UserTest {
             // when
             user.unregister();
             // then
-            assertThat(user.getStatus()).isEqualTo(Status.REGISTERED);
+            assertThat(user.getStatus()).isEqualTo(Status.UNREGISTERED);
         }
     }
 
