@@ -128,6 +128,6 @@ jobs:
 
 
 <div style="display: flex; flex-direction: column; align-items: center;">
-   <img src="/imageStore/createPr.png" style="width:900px; border-radius:10px; margin-bottom: 30px">
+   <img src="/imageStore/createPr.png" style="width:900px; border-radius:10px;">
    <img src="/imageStore/failPrresult.png" style="width:900px; border-radius:10px;">
 </div>
