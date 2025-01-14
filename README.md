@@ -131,3 +131,16 @@ jobs:
    <img src="/imageStore/createPr.png" style="width:900px; border-radius:10px;">
    <img src="/imageStore/failPrresult.png" style="width:900px; border-radius:10px;">
 </div>
+
+자동적으로 `github action`이 `build test`를 진행한 후 실패하여 생성한 `pr`에 결과를 잘 알려준다. 조금 더 자세한 내역을 `action` 탭에서 확인할 수 있다.
+
+<br>
+
+---
+
+### 4. 같은 환경을 만들고 테스트 해본 결과
+
+아직 스프린트 미션에서 내가 제출한 코드가 `merge` 되지 않아서 해당 브랜치에는 `action` 설정 파일이 존재하지 않기 때문이라고 어느정도 추려진 것 같다. 아직 미션 마감일이 아님으로 확인할 수 없기에 향후 추가적인 테스트를 진행해보면 될 것 같다.
+
+추가로 아직 설정이 다 완료된 것이 아니라서, 테스트를 실패할 경우라도 코드가 `merge` 될 수 있다. 이런 추가적인 사항도 적용해 `CI` 를 구축해보고자 한다.
+
