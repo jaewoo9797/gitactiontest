@@ -21,7 +21,7 @@ Hello there~ 👋
 테스트 코드를 작성했으니, 테스트 자동화를 통해 안정성을 높이기 위해 `githubAction`을 이용해 미션 `제출 pr`에 적용해보고 싶었습니다.
 
 ## Issue 
-스프린트 미션 레포지터리를 `fork` 한 후 개인 레포지터리에 작업한 코드를 `pr` 요청을 통해 코드리뷰를 받는 형식입니다.. 내게 발생했던 이슈들을 하나하나씩 정리보겠습니다.
+스프린트 미션 레포지터리를 `fork` 한 후 개인 레포지터리에 작업한 코드를 `pr` 요청을 통해 코드리뷰를 받는 형식입니다. 내게 발생했던 이슈들을 하나하나씩 정리보겠습니다.
 
 
 1. 개인 레포지터리의 브랜치가 `part1-백재우-sprint1`가 최상단이 아니다.
@@ -33,6 +33,58 @@ Hello there~ 👋
    <img src="/imageStore/defaultBranch.png" style="width:900px; border-radius:10px; margin-bottom: 20px;">
    <img src="/imageStore/defaultBranchHome.png" style="width:900px; border-radius:10px;">
 </div>
+
+2. github에 액션 설정 파일   
+   경로 `.github/workflows`에 다음과 같이 코딩해주었습니다.
+```
+name: sprint mission 1 PR Test
+
+on:
+  push:
+    branches:
+      - 'part1-백재우-sprint1'
+  pull_request:
+    branches:
+      - 'part1-백재우'
+    paths:
+      - 'codeit-bootcamp-spring/1-sprint-mission/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: ☕ JDK 17 세팅
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+
+      - name: ☕ gradlew 실행 권한 설정
+        run: find . -name "gradlew" -exec chmod +x {} \;
+
+      - name: 🚀 테스트 진행
+        run: cd codeit-bootcamp-spring/1-sprint-mission && ./gradlew --info test
+```
+
+위의 코드를 작성하는데도 고민되는 부분이 있었습니다. 
+
+- `push` 를 할 때도 테스트 코드를 실행시켜야 하는가?
+- `pr`의 브랜치를 설정해주고, 앞으로 새로 나올 미션에 대한 패키지의 path설정은 어떻게 해주어야 하는가?
+- 코드를 `push` 한 후에 실제로 예상한 결과대로 나오지 않음
+
+처음에는 push 설정이 없이 실행해 본 결과, 아무런 제약 없이 `pr`이 성공적으로 요청이 되었습니다. 문제를 해결하기 위해서 `git action` 탭에 붙어 확인해 보았으나, 아무런 반응을 확인할 수 없었습니다.    
+
+설정 어디의 문제인지 확인하기 위해 개인 레포지터리의 `push` 했을 경우 `gitaction`이 동작하는지 확인 결과 정상적으로 `빌드 실패`의 결과를 볼 수 있었습니다. 범위가 전체에서 `개인 레포` -> `fork 한 레포` 로 좁혀졌습니다.
+
+3. 조작할 수 있는 권한, 사이드 이펙트
+   소유권이 내게 존재하지 않고, 모든 교육생들이 이용하고 있는 레포지터리에 테스트 할 수는 없고 경험해보지 않은 영역이라 사이드 이펙트를 무시할 수 없어 다른 방법을 시도했습니다.
+
+
 
 
 
