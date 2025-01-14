@@ -88,7 +88,9 @@ jobs:
    <img src="/imageStore/successAction.png" style="width:900px; border-radius:10px;">
 </div>
 
-설정 어디의 문제인지 확인하기 위해 개인 레포지터리의 `push` 했을 경우 `gitaction`이 동작하는지 확인 결과 정상적으로 `빌드 실패`의 결과를 볼 수 있었습니다. 범위가 전체에서 `개인 레포` -> `fork 한 레포` 로 좁혀졌습니다.
+설정 어디의 문제인지 확인하기 위해 개인 레포지터리의 `push` 했을 경우 `gitaction`이 동작하는지확인했습니다.
+
+확인 결과 정상적으로 `빌드 실패`의 결과를 볼 수 있었습니다. 범위가 전체에서 `개인 레포` -> `fork 한 레포` 로 좁혀졌습니다.
 
 <br>
 
@@ -99,7 +101,30 @@ jobs:
 
 우선 개인 레포지터리를 하나 생성하여 (현재 레포지터리) 같은 환경을 구축하였고, 기존 미션 코드를 모두 복사했습니다.
 
+그후 `gitAction` 탭에 존재하는 `java With Gradle` 템플릿을 이용해서 `pr`의 위치를 설정해주고 트리거를 설정해주어 테스트 해보았습니다.
 
+<br>
+
+다음과 같이 실행했습니다.
+1. 모든 코드가 존재하는 `main` 에서 `branch`를 분기한다.
+2. 분기한 `branch`에서 실패하는 테스트 코드로 만든다.
+3. 수정한 파일을 커밋한 후 원격 레포지터리의 분기한 브랜치로 `push`한다.
+4. 분기한 브랜치에서 `main` 브랜치로 병합을 요청하는 `pr`을 생성한다.
+   
+ 테스트 코드를 수정하여 실패하는 테스트 코드로 만들었습니다.
+
+```java
+     @Test
+     @DisplayName("유저 해지 요청 후 유저의 상태 변경")
+     void givenUnregisterRequestWhenUnregisterThenStatusChange() {
+         // given
+         // when
+         user.unregister();
+         // then
+         assertThat(user.getStatus()).isEqualTo(Status.REGISTERED);
+     }
+```
+수정한 코드를 `push` 한 후 `pr`의 결과를 살펴보겠습니다.
 
 
 
