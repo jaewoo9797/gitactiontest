@@ -83,6 +83,10 @@ jobs:
 
 처음에는 push 설정이 없이 실행해 본 결과, 테스트 코드가 실패하는 코드임에도 아무런 제약 없이 `pr`이 성공적으로 요청이 되었습니다. 문제를 해결하기 위해서 `git action` 탭에 붙어 확인해 보았으나, 아무런 반응을 확인할 수 없었습니다.    
 
+<div style="display: flex; flex-direction: column; align-items: center;">
+   <img src="/imageStore/failPr.png" style="width:900px; border-radius:10px;">
+</div>
+
 설정 어디의 문제인지 확인하기 위해 개인 레포지터리의 `push` 했을 경우 `gitaction`이 동작하는지 확인 결과 정상적으로 `빌드 실패`의 결과를 볼 수 있었습니다. 범위가 전체에서 `개인 레포` -> `fork 한 레포` 로 좁혀졌습니다.
 
 <br>
